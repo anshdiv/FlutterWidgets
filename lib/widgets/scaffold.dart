@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/stack.dart';
 
 import '../constants.dart';
-import 'button.dart';
 import 'fancy_button.dart';
 
 class ScaffoldWidget extends StatelessWidget {
