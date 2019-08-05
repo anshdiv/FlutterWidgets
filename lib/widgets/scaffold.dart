@@ -3,6 +3,7 @@ import 'package:flutter_widgets/widgets/stack.dart';
 
 import '../constants.dart';
 import 'button.dart';
+import 'fancy_button.dart';
 
 class ScaffoldWidget extends StatelessWidget {
   @override
@@ -35,7 +36,8 @@ class ScaffoldWidget extends StatelessWidget {
           )
         ],
       ),
-      body: ButtonWidget(),
+      body: FancyButtonWidget(),
+
     );
   }
 
