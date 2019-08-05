@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RowWidget extends StatelessWidget {
+class ColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
