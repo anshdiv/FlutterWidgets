@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:local_notifications/local_notifications.dart';
 
 class FirebaseDemo extends StatefulWidget {
   @override
@@ -101,6 +102,7 @@ class FirebaseState extends State<FirebaseDemo> {
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         print('on message $message');
+        showNotification();
       },
       onResume: (Map<String, dynamic> message) async {
         print('on resume $message');
@@ -120,5 +122,36 @@ class FirebaseState extends State<FirebaseDemo> {
     {
       print("Settings registered: $settings");
     });
+  }
+
+  void showNotification(){
+    LocalNotifications.createNotification(
+        id: 0,
+        title: 'Basic',
+        content: 'some basic notification',
+        androidSettings: new AndroidSettings(
+          isOngoing: false,
+          channel: channel,
+          priority: AndroidNotificationPriority.HIGH,
+        ),
+        onNotificationClick: new NotificationAction(
+            actionText: "some action",
+            callback: removeNotify,
+            payload: ""
+        )
+    );
+  }
+
+
+  static const AndroidNotificationChannel channel = const AndroidNotificationChannel(
+    id: 'default_notification11',
+    name: 'CustomNotificationChannel',
+    description: 'Grant this app the ability to show notifications',
+    importance: AndroidNotificationChannelImportance.HIGH,
+    vibratePattern: AndroidVibratePatterns.DEFAULT,
+  );
+
+  void removeNotify(String payload) async {
+    await LocalNotifications.removeNotification(0);
   }
 }
