@@ -4,6 +4,7 @@ import 'package:flutter_widgets/widgets/gridview.dart';
 import 'package:flutter_widgets/widgets/listview.dart';
 import 'package:flutter_widgets/widgets/scaffold.dart';
 import 'package:flutter_widgets/widgets/stack.dart';
+import 'firebase/database.dart';
 import 'widgets/row.dart';
 
 void main() => runApp(MyApp());
@@ -60,6 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return CustomGridViewWidget();
+    return FirebaseDemo();
   }
 }
